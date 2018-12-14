@@ -1,4 +1,4 @@
-# Questões 6 e 7 da Lista de Exercícios
+# Questões 5 e 6 da Lista de Exercícios
 Questões 5 e 6 da Lista de Exercícios da disciplina de Linguagem de Programação I, do curso de Bacharelado em Tecnologia da Informação da UFRN
 
 ## Questão 5.

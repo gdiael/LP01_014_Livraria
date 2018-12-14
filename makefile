@@ -7,7 +7,7 @@
 # $< = primeira dependência da regra
 
 # Comando de compilação do gcc [c++]
-CC = g++
+CC = g++ -g
 
 # Diretórios do Programa
 SRC = ./src

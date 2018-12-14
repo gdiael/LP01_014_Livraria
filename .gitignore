@@ -1,0 +1,5 @@
+build/main.o
+build/livro.o
+build/livraria.o
+bin/livraria
+bin/livraria.exe
