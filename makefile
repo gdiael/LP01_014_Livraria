@@ -16,12 +16,12 @@ BIN = ./bin
 OBJ = ./build
 
 # Arquivo executável [programa principal]
-PROG = $(BIN)/livraria
+PROG = $(BIN)/biblioteca
 
 # Regras de compilação
 FLAGS = -Wall -pedantic -std=c++11 -I$(INC)
 
-PROG_OBJS = $(OBJ)/livro.o $(OBJ)/livraria.o $(OBJ)/main.o
+PROG_OBJS = $(OBJ)/livro.o $(OBJ)/biblioteca.o $(OBJ)/main.o
 
 all: mkdirs $(PROG)
 
@@ -35,10 +35,10 @@ $(PROG): $(PROG_OBJS)
 $(OBJ)/livro.o: $(SRC)/livro.cpp $(INC)/livro.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(OBJ)/livraria.o: $(SRC)/livraria.cpp $(INC)/livraria.h $(INC)/livro.h
+$(OBJ)/biblioteca.o: $(SRC)/biblioteca.cpp $(INC)/biblioteca.h $(INC)/livro.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(OBJ)/main.o: $(SRC)/main.cpp $(INC)/livraria.h
+$(OBJ)/main.o: $(SRC)/main.cpp $(INC)/biblioteca.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean: 
