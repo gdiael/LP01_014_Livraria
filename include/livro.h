@@ -1,12 +1,7 @@
 #ifndef _LIVRO_H_
 #define _LIVRO_H_
 
-#include <string>
-using std::string;
-#include <iostream>
-using std::cout;
-using std::endl;
-using std::ostream;
+#include "auxiliar.h"
 
 class Livro
 {
@@ -18,6 +13,7 @@ private:
     int m_ano;
     string m_isbn;
 public:
+    Livro();
     Livro(string titulo_, string autor_, int edicao_, string editora_, int ano_, string isbn_);
     ~Livro();
     /* Metodos Getrs */
@@ -35,6 +31,7 @@ public:
     void setAno(int val);
     void setIsbn(string val);
     friend ostream& operator << (ostream& os, Livro& liv);
+    friend istream& operator >> (istream& is, Livro& liv);
 };
 
 #endif

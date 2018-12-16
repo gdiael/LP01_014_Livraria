@@ -1,5 +1,7 @@
 build/main.o
 build/livro.o
 build/biblioteca.o
+build/auxiliar.o
+build/fichacatalogal.o
 bin/biblioteca
 bin/biblioteca.exe

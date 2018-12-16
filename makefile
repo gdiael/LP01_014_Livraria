@@ -21,7 +21,7 @@ PROG = $(BIN)/biblioteca
 # Regras de compilação
 FLAGS = -Wall -pedantic -std=c++11 -I$(INC)
 
-PROG_OBJS = $(OBJ)/livro.o $(OBJ)/biblioteca.o $(OBJ)/main.o
+PROG_OBJS = $(OBJ)/auxiliar.o $(OBJ)/livro.o $(OBJ)/fichacatalogal.o $(OBJ)/biblioteca.o $(OBJ)/main.o
 
 all: mkdirs $(PROG)
 
@@ -32,10 +32,16 @@ mkdirs:
 $(PROG): $(PROG_OBJS)
 	$(CC) $(FLAGS) -o $@ $^
 
-$(OBJ)/livro.o: $(SRC)/livro.cpp $(INC)/livro.h
+$(OBJ)/auxiliar.o: $(SRC)/auxiliar.cpp $(INC)/auxiliar.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(OBJ)/biblioteca.o: $(SRC)/biblioteca.cpp $(INC)/biblioteca.h $(INC)/livro.h
+$(OBJ)/livro.o: $(SRC)/livro.cpp $(INC)/livro.h $(INC)/auxiliar.h
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(OBJ)/fichacatalogal.o: $(SRC)/fichacatalogal.cpp $(INC)/fichacatalogal.h $(INC)/livro.h
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(OBJ)/biblioteca.o: $(SRC)/biblioteca.cpp $(INC)/biblioteca.h $(INC)/fichacatalogal.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(OBJ)/main.o: $(SRC)/main.cpp $(INC)/biblioteca.h

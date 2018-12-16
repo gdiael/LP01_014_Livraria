@@ -1,5 +1,11 @@
 #include "livro.h"
 
+Livro::Livro():
+    m_titulo(""), m_autor(""), m_edicao(-1), m_editora(""), m_ano(-1), m_isbn("")
+{
+    /* nada a executar */
+}
+
 Livro::Livro(string titulo_, string autor_, int edicao_, string editora_, int ano_, string isbn_):
     m_titulo(titulo_), m_autor(autor_), m_edicao(edicao_), m_editora(editora_), m_ano(ano_), m_isbn(isbn_)
 {
@@ -65,4 +71,14 @@ ostream& operator << (ostream& os, Livro& liv){
     os << "Editora " << liv.m_editora << ", " << liv.m_edicao << "a edicao, ano de " << liv.m_ano << ";" << endl;
     os << "ISBN: " << liv.m_isbn << "." << endl;
     return os;
+}
+
+istream& operator >> (istream& is, Livro& liv){
+    liv.m_titulo = askForString(is, "Titulo do livro");
+    liv.m_autor = askForString(is, "Autor de [" + liv.m_titulo + "]");
+    liv.m_edicao = askForInteger(is, "Numero da edicao");
+    liv.m_editora = askForString(is, "Nome da Editora");
+    liv.m_ano = askForInteger(is, "Ano de lancamento");
+    liv.m_isbn = stringToUpper(askForString(is, "Codigo Isbn"));
+    return is;
 }
